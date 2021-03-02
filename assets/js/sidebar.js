@@ -2,7 +2,7 @@ Vue.component('sidebar',{
 
     template:
     `
-    <div class="col-md-4">
+    <div class="col-md-4 mt-5">
         <div class="container">
             <h3 class="pb-3 mb-3 border-bottom border-dark">{{titulo1}}</h3>
             <p class="text-justify">{{parrafo}}</p>
