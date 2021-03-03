@@ -2,18 +2,18 @@ Vue.component('sidebar',{
 
     template:
     `
-    <div class="col-md-4">
+    <div class=" mt-5">
         <div class="container">
             <h3 class="pb-3 mb-3 border-bottom border-dark">{{titulo1}}</h3>
             <p class="text-justify">{{parrafo}}</p>
             <h3 class="pb-3 mb-3 border-bottom border-dark">{{titulo2}}</h3>
             <div>
             <p class="text-justify"><i class="text-warning fas fa-arrow-right me-2"></i>{{articulo1}}</p>
-            <a class="text-warning" href="#" target="_blank">>>Read more</a>
+            <a class="text-warning text-end" href="#" target="_blank">>>Read more</a>
             </div>
             <div>
             <p class="text-justify"><i class="text-warning fas fa-arrow-right me-2"></i>{{articulo2}}</p>
-            <a class="text-warning" href="#" target="_blank">>>Read more</a>
+            <a class="text-warning text-end" href="#" target="_blank">>>Read more</a>
             </div>
         </div>
     </div>

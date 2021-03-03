@@ -1,15 +1,12 @@
-
 Vue.component('navegador',{
 
     template:`
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
       <a class="navbar-brand" href="#"><img :src="logo" alt="logo"></a>
-
       <div v-for="imagen in imagenes" class="carousel-item" v-bind:class="imagen.clase">
       <img v-bind:src="imagen.src" class="d-block w-100">
   </div>
-
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -19,7 +16,6 @@ Vue.component('navegador',{
         <li class="nav-item" v-for="opcion in opciones" >
             <a :class="opcion.clase" aria-current="page" href="#">{{opcion.nombre}}</a>
         </li>
-
         </ul>
       </div>
     </div>
@@ -28,7 +24,7 @@ Vue.component('navegador',{
     
     data(){
         return {
-        logo: "/assets/img/logo.png",
+        logo: "/assets/img/logo.gif",
         opciones: [
             {nombre: "Inicio",
             clase: "nav-link active"},
