@@ -24,7 +24,7 @@ Vue.component('navegador',{
     
     data(){
         return {
-        logo: "/assets/img/logo.png",
+        logo: "/assets/img/logo.gif",
         opciones: [
             {nombre: "Inicio",
             clase: "nav-link active"},
