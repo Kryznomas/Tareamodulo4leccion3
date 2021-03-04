@@ -1,7 +1,7 @@
-Vue.component('carrusel',{
+Vue.component('carrusel', {
 
     template:
-    `<div>
+        `<div>
         <div class="modal fade" data-bs-target="#myModal" id="myModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
             <div class="modal-dialog modal-xl  ">
                 <div class="modal-content bg-dark bg-gradient">
@@ -15,6 +15,7 @@ Vue.component('carrusel',{
                     </div>
                     <div class="modal-body text-light">
                         <div id="targetModal"></div>
+                        <tarjetas :activeCard="activeCard" :styles="styles"></tarjeta2>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
@@ -37,40 +38,51 @@ Vue.component('carrusel',{
                 <span class="visually-hidden">Next</span>
             </button>
         </div>
+           
     </div>`,
-    
-    data(){
+
+    data() {
         return {
+            styles: {
+                cardBColor: "#f4f4f4",
+            },
             isDisabled: 'modal',
             idModal: '#myModal',
             label: "Seleccione qué tipo de propiedad busca",
             label2: "¿Arriendo o Venta?",
             option1: "Arriendo",
             option2: "Venta",
-            
+            activeCard: '',
+
             imagenes: [
-                
-                {src: '/assets/img/cabañamontaña1.jpg',
-                clase: "active",
-                tarjetas: "<tarjetasmontana></tarjetasmontana>"},
-                
-                {src: '/assets/img/deptosportada.jpg',
-                clase: "",
-                tarjetas: "<tarjetasdeptos></tarjetasdeptos>"},
-                
-                {src: '/assets/img/casacampoportada.jpg',
-                clase: "",
-                tarjetas: "<tarjetascampo></tarjetascampo>"},
-                
-                {src: '/assets/img/casaplaya1.jpg',
-                clase: "",
-                tarjetas: "<tarjetasplaya></tarjetasmontana>"},
+
+                {
+                    src: './assets/img/cabañamontaña1.jpg',
+                    clase: "active",
+                },
+
+                {
+                    src: './assets/img/deptosportada.jpg',
+                    clase: "",
+                },
+
+                {
+                    src: './assets/img/casacampoportada.jpg',
+                    clase: "",
+                },
+
+                {
+                    src: './assets/img/casaplaya1.jpg',
+                    clase: "",
+                },
             ],
-        }},
-        methods: {
-            datoModal(index) {
-                el = document.getElementById('targetModal');
-                el.innerHTML = this.imagenes[index].tarjetas
-            }
         }
+    },
+    methods: {
+        datoModal(index) {
+            el = document.getElementById('targetModal');
+            el.innerHTML = this.imagenes[index].tarjetas
+            this.activeCard = index
+        }
+    }
 })
