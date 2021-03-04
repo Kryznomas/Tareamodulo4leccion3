@@ -7,15 +7,17 @@ Vue.component('carrusel', {
                 <div class="modal-content bg-dark bg-gradient">
                     <div class="modal-header">
                         <h5 class="text-light">{{label2}} </h5>
-                        <select class="form-select bg-secondary text-light" aria-label="Default select example">
-                            <option selected>{{label}}</option>
-                            <option value="1">{{option1}}</option>
-                            <option value="2">{{option2}}</option>
-                        </select>
+                        <div class="col-9">
+                            <select v-model="selectRent" class="form-select bg-secondary text-light" aria-label="Default select example">
+                                <option value="" class="col-5"selected>{{label}}</option>
+                                <option value="ARRIENDO">{{option1}}</option>
+                                <option value="VENTA">{{option2}}</option>
+                            </select>
+                        </div>
+                        <button type="button" class="btn-close ms-2" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <div class="modal-body text-light">
-                        <div id="targetModal"></div>
-                        <tarjetas :activeCard="activeCard" :styles="styles"></tarjeta2>
+                    <div class="modal-body text-light p-0" >
+                        <tarjetasmodal :activeCard="activeCard" :selectRent="selectRent" :styles="styles"></tarjetasmodal>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
@@ -26,7 +28,7 @@ Vue.component('carrusel', {
         <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">        
             <div class="carousel-inner" >
                 <div v-for="(imagen, index) in imagenes" class="carousel-item" v-bind:class="imagen.clase">
-                    <img @click="datoModal(index)" :data-bs-toggle="isDisabled" :data-bs-target="idModal" v-bind:src="imagen.src" class="d-block w-100">
+                    <img @click="datoModal(index)" :data-bs-toggle="isDisabled" :data-bs-target="idModal" :src="imagen.src" class="d-block w-100" data-bs-placement="top" :title="imagen.tooltip">
                 </div>
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"  data-bs-slide="prev">
@@ -38,7 +40,6 @@ Vue.component('carrusel', {
                 <span class="visually-hidden">Next</span>
             </button>
         </div>
-           
     </div>`,
 
     data() {
@@ -48,41 +49,47 @@ Vue.component('carrusel', {
             },
             isDisabled: 'modal',
             idModal: '#myModal',
-            label: "Seleccione qué tipo de propiedad busca",
+            label: "Todo",
             label2: "¿Arriendo o Venta?",
             option1: "Arriendo",
             option2: "Venta",
             activeCard: '',
+            selectRent:'',
 
             imagenes: [
 
                 {
                     src: './assets/img/cabañamontaña1.jpg',
                     clase: "active",
+                    tooltip: "Haga click para ver más propiedades de montaña",
                 },
 
                 {
                     src: './assets/img/deptosportada.jpg',
                     clase: "",
+                    tooltip: "Haga click para ver más departamentos",
                 },
 
                 {
                     src: './assets/img/casacampoportada.jpg',
                     clase: "",
+                    tooltip: "Haga click para ver más propiedades de campo",
                 },
 
                 {
                     src: './assets/img/casaplaya1.jpg',
                     clase: "",
+                    tooltip: "Haga click para ver más propiedades de playa",
                 },
             ],
         }
     },
     methods: {
         datoModal(index) {
-            el = document.getElementById('targetModal');
-            el.innerHTML = this.imagenes[index].tarjetas
             this.activeCard = index
-        }
-    }
+
+        },
+    },
+    
+    
 })
