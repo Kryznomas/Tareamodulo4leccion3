@@ -6,17 +6,18 @@
     <title>Lassure Real State</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous"/>
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script><link rel="stylesheet" href="/assets/css/styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 </head>
 <body class="bg-dark bg-gradient">
     
     <div id="app" class="container bg-light p-0">
         <div class=" p-0"id="navbar">
-        <navegador>
-        </navegador>
+            <navegador></navegador>
         </div>
         <div id="banner">
-            <carrusel></carrusel>
+            <carrusel>
+                
+            </carrusel>
         </div>
         <div id="suscripción">
             <suscripcion></suscripcion>
@@ -26,12 +27,13 @@
                 <sidebar></sidebar>
             </aside>
             <div id="tarjetas">
-                <tarjeta></tarjeta>
+                <tarjetas></tarjetas>
             </div>
         </div>
         <div id="footer">
-        <mifooter></mifooter>
+            <mifooter></mifooter>
         </div>
+        
     </div>
     
     <script src="assets/js/header.js"></script>
@@ -41,12 +43,16 @@
     <script src="assets/js/sidebar.js"></script>
     <script src="assets/js/suscripcion.js"></script>
     <script src="assets/js/footer.js"></script>
+    <script src="assets/js/tarjetasmodal.js"></script>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
 
     <script>
         new Vue({
             el: "#app",
+
         });
+
     </script>
 </body>
 </html>

@@ -1,4 +1,4 @@
-Vue.component('tarjeta', {
+Vue.component('tarjetas', {
     template: `
     <div id="app" class="row pt-5">
         <div class="col-md-11 cards__container container order-md-1">
