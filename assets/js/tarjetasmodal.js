@@ -1,11 +1,11 @@
 Vue.component('tarjetasmodal', {
     props: ['activeCard', 'selectRent'],
     template: `
-    <div id="app" class="row">
+    <div class="row">
         <div class="col-md-11 cards-container container order-md-1">
-            <div class="row d-flex">
-                <div  v-for="carta in casas" v-if="carta.rentBuy == selectRent || '' == selectRent"  class="col-4 mb-3">
-                    <div v-if="carta.slide == activeCard"  :style="styles.carBColor" class="card text-dark" >
+            <div class="row">
+                <div  v-for="carta in casasFiltradas" v-if="carta.rentBuy == selectRent || '' == selectRent"  class="col-md-4 my-2 d-flex">
+                    <div v-if="carta.slide == activeCard"  :style="styles.carBColor" class="card text-dark ">
                         <div style="position:relative" class="card-img-container">                        
                             <img v-bind:src="carta.src" class="card-img-top" alt="carta.titulo">
                             <div  class="">
@@ -63,8 +63,8 @@ Vue.component('tarjetasmodal', {
 
     data() {
         return {
-            
-            
+            casasFiltradas:[],
+            select: this.activeCard,
             casas: [
                 {
                     titulo: "Casa para arriendo",
@@ -312,8 +312,16 @@ Vue.component('tarjetasmodal', {
 
             styles: {
                 cardBColor: "#f4f4f4",
+                
             },
         }
     },
+
+    watch: {
+        activeCard: function(){
+            this.select = this.activeCard;
+            this.casasFiltradas = this.casas.filter(casa => casa.slide == this.select)
+        }
+    }
 
 });

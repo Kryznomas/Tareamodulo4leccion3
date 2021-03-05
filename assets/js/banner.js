@@ -46,6 +46,7 @@ Vue.component('carrusel', {
         return {
             styles: {
                 cardBColor: "#f4f4f4",
+                overflow: "hidden"
             },
             isDisabled: 'modal',
             idModal: '#myModal',
@@ -87,7 +88,6 @@ Vue.component('carrusel', {
     methods: {
         datoModal(index) {
             this.activeCard = index
-
         },
     },
     
